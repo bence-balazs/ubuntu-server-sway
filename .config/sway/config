@@ -30,10 +30,6 @@ output * bg ~/.config/sway/default.png fill
     bindsym $mod+f6 exec 'systemctl suspend'
 
 ### Idle configuration
-#
-# Example configuration:
-#
-
 exec swayidle -w \
     timeout 1800 'swaylock -k -l -F -f -c 333C43' \
     timeout 1860 'swaymsg "output * power off"' \
@@ -42,17 +38,18 @@ exec swayidle -w \
         resume 'swaymsg "output * power on"' \
         before-sleep 'swaylock -k -l -F -f -c 333C43'
 
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
 # Mouse settings
    input "type:pointer" 
    {
         accel_profile "flat"
         pointer_accel 0.12
     }
+
+# set keyboard layouts
+input type:keyboard {
+    xkb_layout us,hu
+    xkb_options grp:rctrl_toggle
+}
 
 ### Key bindings
 #
