@@ -1,0 +1,24 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.fontSize": 17,
+    "editor.minimap.enabled": false,
+    "editor.cursorSurroundingLines": 10,
+    "editor.fontWeight": "300",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.fontWeightBold": "normal",
+    "terminal.integrated.fontSize": 16,
+    
+    "go.toolsManagement.autoUpdate": true,
+    
+    "git.openRepositoryInParentFolders": "always",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    
+    "workbench.colorTheme": "Default Dark+",
+    "window.menuBarVisibility": "toggle",
+    "update.showReleaseNotes": false,
+}
