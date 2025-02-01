@@ -183,12 +183,20 @@ bar {
   swaybar_command waybar
 }
 
-
 include /etc/sway/config.d/*
 
 gaps inner 0
 default_border pixel 5
 client.focused "#4C7899" "#285577" "#FFFFFF" "#285577"
+
+# GTK related settings (themeing)
+exec_always {
+        gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-purple-dark' 
+        gsettings set org.gnome.desktop.interface icon-theme 'Yaru-purple'
+        gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-White'
+        gsettings set org.gnome.desktop.interface cursor-size '24'
+        gsettings set org.gnome.desktop.interface font-name 'Cantarell 11'
+}
 
 # Refresh rate
 output "LG Electronics LG HDR WQHD+ 306NTSU50662" mode 3840x1600@144Hz
