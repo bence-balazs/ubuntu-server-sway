@@ -27,6 +27,7 @@ wlsunset
 wdisplays
 thunar
 ranger
+pwgen
 tmux
 tree
 unzip
