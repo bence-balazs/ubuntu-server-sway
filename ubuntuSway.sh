@@ -161,8 +161,7 @@ setup_sway() {
 
     cp -R .config /home/${LOCAL_USERNAME}/
     cp -R home/.bash* /home/${LOCAL_USERNAME}/
-    chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/.config
-    chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/.bash*
+    chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/
 }
 
 remove_unwanted_packages() {
@@ -205,6 +204,7 @@ case "$1" in
         echo -n "Enter username to setup Sway to: "
         read LOCAL_USERNAME
         setup_sway
+        systemctl reboot
         ;;
     *)
         echo "Available commands: [initialSetup], [removeSnap], [setupSway], [updatePackage]"
