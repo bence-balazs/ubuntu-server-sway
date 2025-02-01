@@ -78,6 +78,7 @@ setup_terraform() {
     wget ${TERRAFORM_URL}
     unzip terraform*.zip terraform
     mv terraform /usr/bin/
+    rm -rf terraform*.zip
 }
 
 # setup docker repository and install it
@@ -120,11 +121,13 @@ install_telegram() {
     wget ${TELEGRAM_URL}
     tar xvpf tsetup*.tar.xz
     mv Telegram/Telegram /usr/bin/
+    rm -rf Telegram tsetup*.tar.xz
 }
 
 install_kubectl() {
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    rm -rf kubectl
 }
 
 # setup virt-manager
