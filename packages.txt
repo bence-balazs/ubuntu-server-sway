@@ -40,6 +40,7 @@ fonts-firacode
 fonts-font-awesome
 fonts-noto-mono
 fonts-cantarell
+fonts-cascadia-code
 dmz-cursor-theme
 yaru-theme-icon
 yaru-theme-gtk
