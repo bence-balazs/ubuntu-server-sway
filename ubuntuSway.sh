@@ -144,8 +144,8 @@ install_packages() {
     apt autoremove -y
 }
 
+# setup steps for sway
 setup_sway() {
-    # make default dirs
     mkdir -p /home/${LOCAL_USERNAME}/.ssh
     mkdir -p /home/${LOCAL_USERNAME}/scm/github.com
     mkdir -p /home/${LOCAL_USERNAME}/tmp
@@ -155,8 +155,7 @@ setup_sway() {
     cp -R .config /home/${LOCAL_USERNAME}/
     cp -R home/.bash* /home/${LOCAL_USERNAME}/
     chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/
-
-    echo "eval `keychain --agents ssh --eval ~/.ssh/id_rsa`" >> /home/${LOCAL_USERNAME}/.profile
+    # eval `keychain --agents ssh --eval ~/.ssh/id_rsa`"
 }
 
 remove_unwanted_packages() {
