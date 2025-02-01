@@ -25,18 +25,23 @@ include /etc/sway/config-vars.d/*
 # Screenshot
 	bindsym $mod+p exec IMG=~/pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png && grim -g "$(slurp)" $IMG && wl-copy < $IMG
 # Lock screen
-	bindsym $mod+l exec ~/.config/scripts/swaylock.sh
+	bindsym $mod+l exec 'swaylock -k -l -F -f -c 333C43'
 # Suspend
-    bindsym $mod+f6 exec ~/.config/scripts/suspend.sh
+        bindsym $mod+f6 exec 'systemctl suspend'
 
 ### Idle configuration
 #
 # Example configuration:
 #
+
 exec swayidle -w \
-         timeout 25 ~/.config/scripts/swaylock.sh \
-         timeout 30 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep ~/.config/scripts/swaylock.sh
+    timeout 1800 'swaylock -k -l -F -f -c 333C43' \
+    timeout 1860 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    timeout 5 'if pgrep -x swaylock; then swaymsg "output * power off"; fi' \
+        resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -k -l -F -f -c 333C43'
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
