@@ -1,5 +1,4 @@
 set t_Co=256
-set number
 syntax on
 set ruler
 set showmatch
