@@ -152,6 +152,8 @@ setup_sway() {
     cp -R .config /home/${LOCAL_USERNAME}/
     cp -R home/.bash* /home/${LOCAL_USERNAME}/
     chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/
+
+    echo "eval `keychain --agents ssh --eval ~/.ssh/id_rsa`" >> /home/${LOCAL_USERNAME}/.profile
 }
 
 remove_unwanted_packages() {

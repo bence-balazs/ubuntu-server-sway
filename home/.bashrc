@@ -167,4 +167,3 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 source <(kubectl completion bash)
-eval `keychain --agents ssh --eval ~/.ssh/id_rsa`
