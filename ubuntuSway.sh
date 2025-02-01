@@ -132,6 +132,11 @@ install_telegram() {
     cp Telegram/Telegram /usr/bin/
 }
 
+install_kubectl() {
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+}
+
 # setup virt-manager
 setup_virt() {
     systemctl enable libvirtd
@@ -155,7 +160,9 @@ setup_sway() {
     mkdir -p /home/${LOCAL_USERNAME}/pictures/screenshots
 
     cp -R .config /home/${LOCAL_USERNAME}/
+    cp -R home/.bash* /home/${LOCAL_USERNAME}/
     chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/.config
+    chown -R ${LOCAL_USERNAME}:${LOCAL_USERNAME} /home/${LOCAL_USERNAME}/.bash*
 }
 
 remove_unwanted_packages() {
@@ -179,6 +186,7 @@ case "$1" in
         setup_docker
         install_k9s
         install_telegram
+        install_kubectl
         setup_golang
         setup_virt
         remove_unwanted_packages
@@ -194,6 +202,8 @@ case "$1" in
         systemctl reboot
         ;;
     setupSway)
+        echo -n "Enter username to setup Sway to: "
+        read LOCAL_USERNAME
         setup_sway
         ;;
     *)
