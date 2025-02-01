@@ -20,7 +20,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg ~/Pictures/wallpapers/9110261.png fill
+output * bg ~/.config/sway/9110261.png fill
 
 # Screenshot
 	bindsym $mod+p exec IMG=~/pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png && grim -g "$(slurp)" $IMG && wl-copy < $IMG
