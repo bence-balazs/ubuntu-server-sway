@@ -27,7 +27,7 @@ output * bg ~/.config/sway/default.png fill
 # Lock screen
 	bindsym $mod+l exec 'swaylock -k -l -F -f -c 333C43'
 # Suspend
-        bindsym $mod+f6 exec 'systemctl suspend'
+    bindsym $mod+f6 exec 'systemctl suspend'
 
 ### Idle configuration
 #
