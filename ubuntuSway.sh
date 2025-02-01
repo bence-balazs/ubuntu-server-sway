@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+source app-urls.env
+
 # relink sh from dash to bash
 relink_sh() {
     rm -rf /usr/bin/sh
@@ -66,29 +68,16 @@ install_firefox() {
 # setup vscodium repository and install it
 setup_vscodium() {
   # setup vscodium
-  wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-      | gpg --dearmor \
-      | dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-
-  echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
-      | tee /etc/apt/sources.list.d/vscodium.list
-
-apt update && apt install -y codium
+  wget ${VSCODIUM_URL}
+  apt install -y ./codium*.deb
+  rm -rf codium*.deb
 }
 
-# setup terraform repository and install it
+# setup terraform
 setup_terraform() {
-    # setup terraform
-    wget -O- https://apt.releases.hashicorp.com/gpg | \
-    gpg --dearmor | \
-    tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-    https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
-    tee /etc/apt/sources.list.d/hashicorp.list
-
-    apt update
-    apt install -y terraform
+    wget ${TERRAFORM_URL}
+    unzip terraform*.zip terraform
+    mv terraform /usr/bin/
 }
 
 # setup docker repository and install it
@@ -109,27 +98,28 @@ setup_docker() {
     usermod -aG docker $LOCAL_USERNAME
 }
 
+# setup golang
 setup_golang() {
-    # setup golang
     echo '# GOLANG PATH' >> /etc/profile
     echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
 
-    wget https://go.dev/dl/go1.23.5.linux-amd64.tar.gz
-    rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.5.linux-amd64.tar.gz
-    rm -rf go1.23.5.linux-amd64.tar.gz
+    wget ${GOLANG_URL}
+    rm -rf /usr/local/go && tar -C /usr/local -xzf go*.tar.gz
+    rm -rf go*.tar.gz
 }
 
 # install k9s
 install_k9s() {
-    wget https://github.com/derailed/k9s/releases/download/v0.32.7/k9s_linux_amd64.deb
-    apt install -y ./k9s_linux_amd64.deb
+    wget ${K9S_URL}
+    apt install -y ./k9s*.deb
+    rm -rf k9s*.deb
 }
 
 # install telegram
 install_telegram() {
-    wget https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.7/tsetup.5.10.7.tar.xz
-    tar xvpf tsetup.5.10.7.tar.xz
-    cp Telegram/Telegram /usr/bin/
+    wget ${TELEGRAM_URL}
+    tar xvpf tsetup*.tar.xz
+    mv Telegram/Telegram /usr/bin/
 }
 
 install_kubectl() {
