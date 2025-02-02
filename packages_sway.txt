@@ -1,5 +1,6 @@
 git
 git-lfs
+curl
 bash-completion
 bat
 neovim
