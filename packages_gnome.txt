@@ -1,7 +1,11 @@
+curl
 git
 git-lfs
+chrome-gnome-shell
 bash-completion
 bat
+htop
+gnome-weather
 neovim
 fd-find
 ffmpeg
