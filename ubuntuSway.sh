@@ -183,7 +183,7 @@ case "$1" in
         relink_sh
         update_upgrade
         setup_sudoers
-        # install_packages_for_sway
+        install_packages_for_sway
         # install_packages_for_gnome
         install_firefox
         setup_vscode
