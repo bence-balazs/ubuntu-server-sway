@@ -65,12 +65,13 @@ install_firefox() {
     apt update && apt install -y firefox
 }
 
-# setup vscodium repository and install it
+# setup vscode repository and install it
 setup_vscodium() {
-  # setup vscodium
-  wget ${VSCODIUM_URL}
-  apt install -y ./codium*.deb
-  rm -rf codium*.deb
+    apt-get install wget gpg
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+    echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+    rm -f packages.microsoft.gpg
 }
 
 # setup terraform
@@ -137,10 +138,17 @@ setup_virt() {
     adduser ${LOCAL_USERNAME} kvm
 }
 
-install_packages() {
+install_packages_for_sway() {
     # install neccessary packages
     apt update
-    apt install -y $(cat packages.txt)
+    apt install -y $(cat packages_sway.txt)
+    apt autoremove -y
+}
+
+install_packages_for_gnome() {
+    # install neccessary packages
+    apt update
+    apt install -y $(cat packages_gnome.txt)
     apt autoremove -y
 }
 
@@ -172,9 +180,10 @@ case "$1" in
         relink_sh
         update_upgrade
         setup_sudoers
-        install_packages
+        # install_packages_for_sway
+        # install_packages_for_gnome
         install_firefox
-        setup_vscodium
+        setup_code
         setup_terraform
         setup_docker
         install_k9s
