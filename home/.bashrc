@@ -167,3 +167,8 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 source <(kubectl completion bash)
+
+# ssh promt
+if [ -n "$SSH_TTY" ]; then
+        PS1="\[\e[31m\][\[\e[m\]\[\e[31m\]SSH\[\e[m\]\[\e[31m\]]\[\e[m\]-\[\e[33m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\]:\[\e[35m\]\w\[\e[m\]\\$ "
+fi
