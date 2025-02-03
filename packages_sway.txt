@@ -60,3 +60,4 @@ alsa-utils
 keychain
 pipewire-audio
 network-manager
+pulseaudio-utils
