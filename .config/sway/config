@@ -39,11 +39,22 @@ exec swayidle -w \
         before-sleep 'swaylock -k -l -F -f -c 333C43'
 
 # Mouse settings
-   input "type:pointer" 
-   {
-        accel_profile "flat"
-        pointer_accel 0.12
-    }
+input "type:pointer" {
+    accel_profile "flat"
+    pointer_accel 0.12 
+}
+
+# Touchpad setting
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    accel_profile "flat"
+    pointer_accel 0.65
+    scroll_factor 0.2
+}
+
 
 # set keyboard layouts
 input type:keyboard {
@@ -175,6 +186,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
 #
@@ -182,7 +194,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-  swaybar_command waybar
+swaybar_command waybar 
 }
 
 include /etc/sway/config.d/*
@@ -193,15 +205,16 @@ client.focused "#4C7899" "#285577" "#FFFFFF" "#285577"
 
 # GTK related settings (themeing)
 exec_always {
-        gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-purple-dark' 
-        gsettings set org.gnome.desktop.interface icon-theme 'Yaru-purple'
-        gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-White'
-        gsettings set org.gnome.desktop.interface cursor-size '24'
-        gsettings set org.gnome.desktop.interface font-name 'Cantarell 11'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-purple-dark' 
+    gsettings set org.gnome.desktop.interface icon-theme 'Yaru-purple'
+    gsettings set org.gnome.desktop.interface cursor-theme 'DMZ-White'
+    gsettings set org.gnome.desktop.interface cursor-size '24'
+    gsettings set org.gnome.desktop.interface font-name 'Cantarell 11'
 }
 
 # Refresh rate
 output "LG Electronics LG HDR WQHD+ 306NTSU50662" mode 3840x1600@144Hz
+output "Chimei Innolux Corporation 0x1301 Unknown" scale 1.25 mode 2160x1350@60Hz
 output * adaptive_sync on
 
 #exec wlsunset -t 4850
