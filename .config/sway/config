@@ -28,6 +28,10 @@ output * bg ~/.config/sway/default.png fill
 	bindsym $mod+l exec 'swaylock -k -l -F -f -c 333C43'
 # Suspend
     bindsym $mod+f6 exec 'systemctl suspend'
+# Set brightness on laptop
+    bindsym XF86MonBrightnessDown exec 'brightnessctl s 10%-'
+    bindsym XF86MonBrightnessUp exec 'brightnessctl s +10%'
+
 
 ### Idle configuration
 exec swayidle -w \
