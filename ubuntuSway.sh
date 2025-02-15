@@ -128,6 +128,10 @@ install_telegram() {
     rm -rf Telegram tsetup*.tar.xz
 }
 
+install_thunderbird() {
+    
+}
+
 install_kubectl() {
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -184,7 +188,6 @@ case "$1" in
         update_upgrade
         setup_sudoers
         install_packages_for_sway
-        # install_packages_for_gnome
         install_firefox
         setup_vscode
         setup_terraform
