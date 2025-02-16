@@ -28,9 +28,12 @@ output * bg ~/.config/sway/default.png fill
 	bindsym $mod+l exec 'swaylock -k -l -F -f -c 333C43'
 # Suspend
     bindsym $mod+f6 exec 'systemctl suspend'
-# Set brightness on laptop
+# Laptop FN keys
     bindsym XF86MonBrightnessDown exec 'brightnessctl s 10%-'
     bindsym XF86MonBrightnessUp exec 'brightnessctl s +10%'
+    bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +10%'
+    bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -10%'
 
 
 ### Idle configuration
