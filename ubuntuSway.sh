@@ -42,7 +42,6 @@ remove_snap() {
     systemctl stop snapd || true
     systemctl disable snapd || true
     systemctl mask snapd || true
-    
     echo "Removing Snapd service..."
     apt-get purge -y snapd || true
 
@@ -129,7 +128,6 @@ install_telegram() {
 }
 
 install_thunderbird() {
-    
 }
 
 install_kubectl() {
@@ -217,5 +215,5 @@ case "$1" in
         ;;
     *)
         echo "Available commands: [initialSetup], [removeSnap], [setupSway], [updatePackage]"
-        ;;  
+        ;;
 esac
