@@ -160,15 +160,20 @@ sdd() {
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 
+# bash completion
+source /etc/profile.d/bash_completion.sh
+
 # start sway on tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
-  export MOZ_ENABLE_WAYLAND=1
+#  export MOZ_ENABLE_WAYLAND=1
   exec sway
 fi
-
 source <(kubectl completion bash)
+
+. "$HOME/.local/bin/env"
 
 # ssh promt
 if [ -n "$SSH_TTY" ]; then
         PS1="\[\e[31m\][\[\e[m\]\[\e[31m\]SSH\[\e[m\]\[\e[31m\]]\[\e[m\]-\[\e[33m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[33m\]\h\[\e[m\]:\[\e[35m\]\w\[\e[m\]\\$ "
 fi
+export TERM=xterm-256color
