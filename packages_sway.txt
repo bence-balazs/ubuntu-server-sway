@@ -3,7 +3,6 @@ git-lfs
 curl
 bash-completion
 bat
-neovim
 fd-find
 ffmpeg
 fzf
@@ -61,3 +60,4 @@ keychain
 pipewire-audio
 network-manager
 pulseaudio-utils
+vim
