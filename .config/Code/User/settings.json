@@ -6,19 +6,15 @@
     "editor.fontWeight": "300",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": false,
-
     "terminal.integrated.fontWeight": "normal",
     "terminal.integrated.fontWeightBold": "normal",
     "terminal.integrated.fontSize": 16,
-    
+    "editor.renderWhitespace": "boundary",
     "go.toolsManagement.autoUpdate": true,
-    
     "git.openRepositoryInParentFolders": "always",
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    
-    "workbench.colorTheme": "Default Dark+",
     "window.menuBarVisibility": "toggle",
     "update.showReleaseNotes": false,
     "extensions.autoCheckUpdates": false,
@@ -27,4 +23,31 @@
     "gitlens.telemetry.enabled": false,
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.startupPrompt": "never",
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "explorer.confirmDelete": false,
+    "terminal.integrated.copyOnSelection": true,
+    "extensions.ignoreRecommendations": true,
+    "explorer.confirmDragAndDrop": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "GitLive.Special branches": "main|master|trunk|dev|develop|qa|test|release[-/].*",
+    "[dockercompose]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.formatOnSave": true,
+    },
+    "editor.formatOnSave": true,
+    "hediet.vscode-drawio.resizeImages": null,
+    "workbench.colorTheme": "Default Dark+",
 }
