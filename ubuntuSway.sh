@@ -150,13 +150,6 @@ install_packages_for_sway() {
     apt autoremove -y
 }
 
-install_packages_for_gnome() {
-    # install neccessary packages
-    apt update
-    apt install -y $(cat packages_gnome.txt)
-    apt autoremove -y
-}
-
 # setup steps for sway
 setup_sway() {
     mkdir -p /home/${LOCAL_USERNAME}/.ssh
@@ -200,7 +193,7 @@ case "$1" in
         ;;
     updatePackages)
         echo "installing new packages..."
-        install_packages
+        install_packages_for_sway
         ;;  
     removeSnap)
         echo "removing snap..."
