@@ -100,6 +100,10 @@ setup_docker() {
     apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     usermod -aG docker $LOCAL_USERNAME
+
+    # set bash-completition for docker
+    mkdir -p /etc/bash_completion.d
+    docker completion bash > /etc/bash_completion.d/docker
 }
 
 # setup golang
