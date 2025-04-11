@@ -134,6 +134,11 @@ install_telegram() {
 install_thunderbird() {
 }
 
+# download bssh
+install_bssh() {
+    wget -O bssh -P /usr/bin https://github.com/bence-balazs/bssh/releases/download/1.0/bssh_glibc
+}
+
 install_kubectl() {
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -192,6 +197,7 @@ case "$1" in
         install_kubectl
         setup_golang
         setup_virt
+        install_bssh
         remove_unwanted_packages
         systemctl reboot
         ;;
