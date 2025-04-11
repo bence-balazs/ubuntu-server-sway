@@ -5,6 +5,7 @@ syntax on
 set ruler
 set showmatch
 set hlsearch
+set incsearch
 set ignorecase
 set smartcase
 set showmode
