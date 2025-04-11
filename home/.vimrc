@@ -15,7 +15,7 @@ set scrolloff=10
 set viminfo+=n~/.config/nvim/viminfo2
 set cursorline
 hi CursorLine ctermbg=233 guibg=#FFFFFF cterm=none gui=none
-hi CursorLineNr ctermbg=236 ctermfg=magenta cterm=none gui=none
+hi CursorLineNr ctermbg=233 ctermfg=magenta cterm=none gui=none
 set laststatus=2
 highlight Comment ctermfg=green
 
